@@ -1,5 +1,9 @@
 #!/bin/bash
 
+<<<<<<< HEAD
+=======
+# Function to check for command success
+>>>>>>> add
 check_command() {
   if [ $? -eq 0 ]; then
     echo "[SUCCESS] $1"
@@ -19,7 +23,10 @@ echo "Updating and upgrading packages..."
 yum -y update
 check_command "Package updates"
 
+<<<<<<< HEAD
 # Enable firewall and configure rules (if not already configured)
+=======
+>>>>>>> add
 if ! iptables -L | grep -q "Chain INPUT (policy DROP)"; then
   echo "Configuring the firewall..."
 
@@ -42,6 +49,10 @@ fi
 if [ -f "/etc/ssh/sshd_config" ]; then
   echo "Configuring SSH..."
 
+<<<<<<< HEAD
+=======
+  # Disable root login
+>>>>>>> add
   sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 
   # Disable password-based authentication (use key-based authentication)
@@ -77,6 +88,10 @@ chmod 644 /etc/passwd
 chmod 644 /etc/group
 check_command "Secure permissions for sensitive files"
 
+<<<<<<< HEAD
+=======
+# Clear history and logs
+>>>>>>> add
 echo "Clearing history and logs..."
 history -c
 find /var/log -type f -exec truncate --size 0 {} \;
